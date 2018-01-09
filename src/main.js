@@ -14,7 +14,7 @@ const reqInterceptor = axios.interceptors.request.use(config => {
   config.headers.common['Authorization'] = 'thanks-for-the-warning'
   return config
 })
-const resInterceptpr = axios.interceptors.response.use(res => {
+const resInterceptor = axios.interceptors.response.use(res => {
   console.log('Response Interceptor', res)
   return res
   })
@@ -22,7 +22,7 @@ const resInterceptpr = axios.interceptors.response.use(res => {
 // eject must include an argument referencing the interceptor
 // we want to remove.
 axios.interceptors.request.eject(reqInterceptor)
-axios.interceptors.response.eject(resInterceptpr)
+axios.interceptors.response.eject(resInterceptor)
 
 new Vue({
   el: '#app',

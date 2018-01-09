@@ -1,6 +1,6 @@
 # vue-update
 
-> Vue Auth & more
+> Vue Auth using Axios and Firebase.
 
 ## Build Setup
 
