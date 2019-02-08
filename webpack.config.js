@@ -1,6 +1,6 @@
-var path = require('path')
-var webpack = require('webpack')
-
+ var path = require('path')
+ var webpack = require('webpack')
+ const VueLoaderPlugin = require('vue-loader/lib/plugin')
 module.exports = {
   entry: './src/main.js',
   output: {
@@ -8,6 +8,9 @@ module.exports = {
     publicPath: '/dist/',
     filename: 'build.js'
   },
+  plugins: [
+    new VueLoaderPlugin()
+  ],
   module: {
     rules: [
       {
@@ -18,6 +21,21 @@ module.exports = {
           }
           // other vue-loader options go here
         }
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'vue-style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              // enable CSS Modules
+              modules: true,
+              // customize generated class names
+              localIdentName: '[local]_[hash:base64:8]'
+            }
+          }
+        ]
       },
       {
         test: /\.js$/,
